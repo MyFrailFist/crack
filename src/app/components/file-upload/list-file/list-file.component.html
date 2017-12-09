@@ -1,0 +1,49 @@
+<button id="modalButton" type="button" class="btn btn-default waves-effect" (click)="modalDefault.show()" style="display:none;"></button>
+<app-modal-basic #modalDefault>
+    <div class="app-modal-header">
+        <h4 class="modal-title">Rename "{{selectedFile.name}}{{selectedFile.extension}}"</h4>
+        <button type="button" class="close basic-close" (click)="modalDefault.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="app-modal-body">
+        <form #renameForm="ngForm" (ngSubmit)="renameFile(renameForm)" (keydown.enter)="$event.preventDefault()">
+	        New name :
+	        <input type="text" name="newName" ngModel>
+	        <button id="submitForm" type="submit" style="display: none;"></button>
+		</form>
+    </div>
+    <div class="app-modal-footer">
+        <button id="closeModal" class="btn btn-default waves-effect" (click)="modalDefault.hide()">Close</button>
+        <button type="button" class="btn btn-primary waves-effect waves-light" (click)="dismissModalSubmit()">Save changes</button> 
+    </div>
+</app-modal-basic>
+
+
+<table class="table table-responsive">
+	<thead class="thead-light">
+		<tr>
+			<th id="fileHeader">File</th>
+			<th>Date Uploaded</th>
+			<th>File size</th>
+			<th></th>
+		</tr>
+	</thead>
+		<tr *ngFor="let file of listOfUploads">
+			<td>{{file.name}}{{file.extension}}</td>
+			<td>{{file.createdOn | date: "short"}}</td>
+			<td>{{file.size[0]}}{{file.size[1]}}</td>
+			<td>
+				<div ngbDropdown class="dropdown-default dropdown open" id="fileOptionsDropdown">
+	                <button ngbDropdownToggle class="btn btn-default dropdown-toggle waves-effect waves-light " type="button" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">...</button>
+	                <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown1" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+	                    <a class="dropdown-item waves-light waves-effect" href="{{file.url}}">Download</a>
+	                    <a class="dropdown-item waves-light waves-effect" (click)="renameSelectFile(file)">Rename</a>
+	                    <a class="dropdown-item waves-light waves-effect" (click)="deleteFile(file)">Delete</a>
+	                </div>
+	            </div>
+			</td>
+		</tr>
+
+</table>
+

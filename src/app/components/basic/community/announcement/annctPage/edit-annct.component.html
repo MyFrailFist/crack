@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-sm-12">
+    <app-card [title]="'Edit Your Announcement'" [classHeader]="true">
+      <form #annctForm="ngForm" (ngSubmit)="onAnnctSubmit(annctForm)">
+        <div class="row">
+          <div class="col-sm-12 col-xl-6">
+            <h4 class="sub-title">Title:</h4> 
+            <input class="form-control" type="text" value="{{selectedAnnct.title}}" name="title" ngModel> 
+            <hr>
+            <br>
+          </div>
+        </div>
+        <hr>
+        <br>
+        <quill-editor
+          [(ngModel)]="editorContent" [ngModelOptions]="{standalone: true}"
+          [options]="editorConfig"
+          (blur)="onEditorBlured($event)"
+          (focus)="onEditorFocused($event)"
+          (ready)="onEditorCreated($event)"
+          (change)="onContentChanged($event)">
+        </quill-editor>
+        <button type="submit" class="btn btn-primary">Submit Announcement</button>
+      </form>
+    </app-card>
+  </div>
+</div>

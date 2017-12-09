@@ -1,0 +1,25 @@
+<!-- 
+<div class="row">
+  <a class = "col-m-2 btn btn-primary" routerLink="./property" routerLinkActive="currentAnnctType">Property</a>
+  <a class = "col-m-2 btn btn-primary" routerLink="./block" routerLinkActive="currentAnnctType">Block</a>
+  <a class = "col-m-2 btn btn-primary" routerLink="./unit" routerLinkActive="currentAnnctType">Unit</a>
+  <a class = "col-m-2 btn btn-primary" routerLink="./personal" routerLinkActive="currentAnnctType">Personal</a>
+  <a class = "col-m-2 btn btn-primary" routerLink="./my" routerLinkActive="currentAnnuctType">All my Announcements</a>
+  <a class = "col-m-2 btn btn-primary" routerLink="./create">Post announcement</a>
+</div> -->
+<app-card [title]="Announcement">
+	<a class="btn btn-primary" routerLink="./create" (click)="setAnnctType('Property')">Post announcement</a>
+	<div ngbDropdown class="dropdown-primary dropdown open">
+       <button ngbDropdownToggle class="btn btn-primary dropdown-toggle waves-effect waves-light" type="button" id="dropdown-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{annctTypeSelected}}</button>
+        <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown-2" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+          <a class = "dropdown-item waves-light waves-effect" routerLink="./property" (click)="setAnnctType('Property')">Property</a>
+    		  <a class = "dropdown-item waves-light waves-effect" routerLink="./block" (click)="setAnnctType('Block')">Block</a>
+    		  <a class = "dropdown-item waves-light waves-effect" routerLink="./unit" (click)="setAnnctType('Unit')">Unit</a>
+    		  <a class = "dropdown-item waves-light waves-effect" routerLink="./personal" (click)="setAnnctType('Personal')">Personal</a>
+    		  <a class = "dropdown-item waves-light waves-effect" routerLink="./my" (click)="setAnnctType('All my Announcements')">All my Announcements</a>
+          <a *ngIf = "user.propertyManager === true" class = "dropdown-item waves-light waves-effect" routerLink="./approve" (click)="setAnnctType('Unapproved')">Unapproved</a>
+        </div>
+    </div>
+	<router-outlet></router-outlet>
+</app-card>
+

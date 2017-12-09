@@ -1,0 +1,63 @@
+<table class="table table-hover table-responsive">
+  <thead>
+    <tr>
+      <th>Your Block Announcements</th>
+      <th>Date</th>
+      <th>By</th>
+    </tr>
+  </thead>
+  <tbody>
+<!--     <span class="For pagination later"> -->
+      <tr *ngFor="let annct of listOfAnnct" (click)="viewAnnct(annct)">
+        <td>{{annct.title}}</td>
+        <td>{{annct.date | date: "short"}}</td>
+        <td>{{annct.userName}}</td>
+      </tr>
+<!--     </span> -->
+  </tbody>
+</table>
+
+<button id="modalButton" (click)="modalOverflow.show()" style="display:none;"></button>
+<!-- modal goes here.-->
+<app-modal-basic #modalOverflow [hideHeader]="true" [hideFooter]="true">
+  <div class="app-modal-body">
+      <button id="closeAnnctButton" type="button" class="close basic-close-light-box" (click)="modalOverflow.hide()">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      <h5 class="font-header">{{selectedAnnct.title}}</h5>
+      <p>Type: {{selectedAnnct.scope}}</p>
+      <p>Date posted: {{selectedAnnct.date | date: "short"}}</p>
+      <h5>Content</h5>
+      <div class="overflow-container" slimScroll railVisible="true" railColor="#004a6d" width="100%" height="500px" size="8px" color="#999" opacity="0.6" allowPageScroll="false">
+        <!--Used innerHTML to insert content as content is html as well-->
+      </div>
+      <div class="app-modal-footer">
+          <button *ngIf="user.$key === selectedAnnct.userId || user.propertyManager === true" type="button" class="btn btn-danger waves-effect" (click)="deleteAnnct(selectedAnnct)">Delete</button>
+          <button *ngIf="user.$key === selectedAnnct.userId" type="button" class="btn btn-primary mobtn" (click)="editAnnct(selectedAnnct)">Edit</button>
+      </div>
+  </div>
+</app-modal-basic>
+
+<!--Reason for deleting modal form-->
+<button id="reasonModalButton" type="button" class="btn btn-default waves-effect" (click)="modalDefault.show()" style="display:none;"></button>
+<app-modal-basic #modalDefault>
+    <div class="app-modal-header">
+        <h4 class="modal-title">Reason for deleting this announcement</h4>
+        <button type="button" class="close basic-close" (click)="modalDefault.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div id="reasonModalBody" class="app-modal-body">
+      <p>Reason : </p>
+      <form #reasonForm="ngForm" (ngSubmit)="deleteAnnct(selectedAnnct,reasonForm)">
+        <textarea required minlength="20" class="form-control" placeholder="Please enter your reason for deleting this announcement" name="reason" ngModel></textarea>
+
+        <button id="submitReason" type="submit" style="display:none;"></button>
+      </form>
+    </div>
+    <div id="reasonModalFooter" class="app-modal-footer">
+        <button type="button" class="btn btn-default waves-effect" (click)="modalDefault.hide()">Close</button>
+        <button id="submitReasonButton" type="submit" class="btn btn-primary waves-effect waves-light " (click) = "submitReason()">Delete</button>
+    </div>
+</app-modal-basic>
+

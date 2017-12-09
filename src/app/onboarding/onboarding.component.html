@@ -1,0 +1,30 @@
+<div class="col-md-12">
+  <div class="col-md-4 col-md-offset-4">
+    <div class="form-group"> 
+    <h2 class="form-onboard-heading">Onboarding</h2>
+    <form #userObjectForm="ngForm" (ngSubmit)="submitForm(userObject)">
+      <div class="form-group">
+        <input [(ngModel)]="userObject.name" [ngModelOptions]="{standalone:true}" type="name" class="form-control col-md-6 col-md-offset-4" id="name"  placeholder="Name">
+        <br>
+        <input [(ngModel)]="userObject.email" [ngModelOptions]="{standalone:true}" type="email" class="form-control col-md-6 col-md-offset-4" id="email"  placeholder="Email">
+        <br>
+       	<input [(ngModel)]="userObject.country" [ngModelOptions]="{standalone:true}" type="country" class="form-control col-md-6 col-md-offset-4" id="country" placeholder="Country">
+       	<br>
+       	<input [(ngModel)]="userObject.address" [ngModelOptions]="{standalone:true}" type="address" class="form-control col-md-6 col-md-offset-4" id="address" placeholder="Address">
+       	<br>
+       	<input [(ngModel)]="userObject.unit" [ngModelOptions]="{standalone:true}" type="unit" class="form-control col-md-6 col-md-offset-4" id="unit" placeholder="Unit">
+       	<br>
+       	<input [(ngModel)]="userObject.phoneNumber" [ngModelOptions]="{standalone:true}" type="phoneNumber" class="form-control col-md-6 col-md-offset-4" id="phoneNumber" placeholder="Phone Number">
+       	<br>
+       	<input [(ngModel)]="userObject.resident" [ngModelOptions]="{standalone:true}" type="checkbox" class="onoffswitch-checkbox" id="resident" name="resident"> Resident
+       	<br>
+       	<input [(ngModel)]="userObject.propertyManager" [ngModelOptions]="{standalone:true}" type="checkbox" class="onoffswitch-checkbox" id="propertyManagement" name="propertyManagement"> Property Manager
+       	<br>
+        <button class="btn btn-theme btn-block" [disabled]="!userObjectForm.form.valid" (click)="completeForm(userObject)"><i class="fa fa-user-circle"></i> COMPLETE</button>
+      </div>
+  	</form>
+      <hr>
+      <hr>
+    </div>
+  </div>
+</div>

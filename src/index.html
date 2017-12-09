@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <!-- Bootstrap Core CSS and Jquery-ui Core CSS -->        
+  <!-- Residents Core CSS -->
+  <title>Variantz| Welcome</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Mada:300,400,500,600,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/angular-calendar@0.21.3/dist/css/angular-calendar.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+  <app-root>
+    <div class="theme-loader">
+      <div class="ball-scale">
+        <div></div>
+      </div>
+    </div>
+  </app-root>
+</body>
+<script>
+
+  /* The Google charts loader blows up if gadgets is defined, as it is
+   * when the Firebase SDK is loaded.  Unfortunately, neither component
+   * creates gadgets.config, which the rpc.v.js file loaded by the charts
+   * loader relies on.
+   *FUCKING USELESSS SCRIPT HERE, do not remove, it causes a small error
+   * This nasty kludge prevents error messages from appearing in the
+   * console.
+   */
+  window.gadgets = window.gadgets || {
+    config: {
+      register: function () {}
+    }
+  };
+</script>
+</html>

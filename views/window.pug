@@ -1,0 +1,35 @@
+
+
+h1 Fitbit Token
+
+#fitbitToken
+	button.buttonClick Click here to retrieve token
+
+script(src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js")
+//- script(type="text/javascript" src="script.js")
+script.
+	$(document).ready(function(){
+		var hashUrl = window.location.href;
+		console.log(hashUrl);
+		$.ajax({
+			method:'GET',
+			url:'/api/fitbit/callback/'+hashUrl
+		})
+
+
+		$('.buttonClick').click(function() {
+			console.log(typeof(hashUrl));
+			hashUrl = hashUrl.split("callback#access_token=");
+				console.log(hashUrl);
+			hashUrl = hashUrl.splice(hashUrl.length-1, 1); // take the last index
+			hashUrl = hashUrl.join('');
+			hashUrl = hashUrl.split("&user");
+			hashUrl=hashUrl.splice(0,1); //take the first one
+
+
+
+			$("#fitbitToken").append(hashUrl);
+
+		})
+
+	})

@@ -1,0 +1,29 @@
+.container
+{width: 750px}
+
+.container{
+padding-right: 15px;
+padding-left: 15px;
+margin-right: auto;
+margin-left: auto}
+
+
+::selection{
+	background: #68dff0;
+color: #fff;
+}
+
+
+address, article, aside, div, footer, header, hgroup, layer, main, nav, section {
+	display:block;
+}
+
+
+body {
+	color: #797979;
+background: #f2f2f2;
+font-family: 'Ruda', sans-serif;
+padding: 0px !important;
+margin: 0px !important;
+font-size: 13px;
+}

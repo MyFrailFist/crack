@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-sm-12">
+    <app-card [title]="'Create announcment'" [classHeader]="true">
+      <form #annctForm="ngForm" (ngSubmit)="onAnnctSubmit(annctForm)">
+        <div class="row">
+          <div class="col-sm-12 col-xl-6">
+            <h4 class="sub-title">Title:</h4> 
+            <input class="form-control" type="text" name="title" ngModel> 
+            <hr>
+            <br>
+          </div>
+
+          <div class="col-sm-12 col-xl-6">
+            <h4 class="sub-title">Scope of Announcement</h4>
+              <select name="scope" class="form-control form-control-default" ngModel>
+                <option value="property">Whole estate</option>
+                <option value="block">Block</option>
+                <option value="unit">Unit</option>
+                <option value="personal">Personal</option>
+              </select>
+          </div>
+        </div>
+        <hr>
+        <br>
+        <quill-editor
+          [(ngModel)]="editorContent" [ngModelOptions]="{standalone: true}"
+          [options]="editorConfig"
+          (blur)="onEditorBlured($event)"
+          (focus)="onEditorFocused($event)"
+          (ready)="onEditorCreated($event)"
+          (change)="onContentChanged($event)">
+        </quill-editor>
+        <button type="submit" class="btn btn-primary">Submit Announcement</button>
+      </form>
+    </app-card>
+  </div>
+</div>

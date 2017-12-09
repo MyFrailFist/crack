@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-sm-12">
+    <app-card [title]="'Your Files'">
+
+      <div>
+        <input type="file" (change)="singleUpload($event)" id="uploadInput">
+      </div>
+
+      <div class="container">
+        <!--[disabled]="!pickedFile" Took this NG directive away as it was no longer needed-->
+        <button (click)="openFileSelect()" class = "btn btn-primary">Upload</button>
+        <br>
+        <br>
+        <app-list-file><spinner></spinner></app-list-file>
+      <div *ngIf = "uploadingList[0]" class="panel panel-primary">
+        <div class="panel-heading bg-primary">
+          Upload Progress
+        </div>
+        <div class="panel-body">
+          <table class="table table-responsive">
+
+            <tr *ngFor="let upload of uploadingList" >
+              <td *ngIf="upload.progress < 100" > Uploading: "{{upload.name}}{{upload.extension}}" , Completed: {{upload.progress}}%</td>
+              <td class="table-success" *ngIf="upload.progress === 100"> "{{upload.name}}{{upload.extension}}" Uploaded</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      </div>
+    </app-card>
+  </div>
+</div>
