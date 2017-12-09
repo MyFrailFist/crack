@@ -1,10 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+var socket_io = require('socket.io');
 const mongoose = require('mongoose');
 const path = require('path');
 const http = require('http');
-const app = express();
+
 
 
 var passport = require('passport');
@@ -20,8 +21,16 @@ db.once('open', function () {
     console.log("Connected correctly to server");
   });
 
-// API file for interacting with MongoDB
-const api = require('./server/routes/api');
+const app = express();
+
+var io = socket_io();
+app.io = io;
+io.on('connection', function(socket) {
+  // the primary socket at '/' 
+  console.log('user ' + socket.id + ' has connected on /');
+});
+
+
 
 // Parsers
 app.use(cookieParser());
@@ -40,19 +49,32 @@ app.set('view engine', 'pug');
 // Angular DIST output folder
 app.use(express.static(path.join(__dirname, 'dist')));
 
+//app.use('/api', api);
+
 // API location
-app.use('/api', api);
+var routes = require('./server/routes')(app);
 
-
-// Send all other requests to the Angular app
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist/index.html'));
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 
-//Set Port
-const port = process.env.PORT || '4200';
-app.set('port', port);
+// error handlers
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+  app.use(function(err, req, res, next) {
+    // console.log('handling error');
+    res.status(err.status || 500);
+    res.json({
+      message: err.message,
+      error: err
+    });
+  });
+}
 
-const server = http.createServer(app);
 
-server.listen(port, () => console.log(`Running on localhost:${port}`));
+
+module.exports = app;

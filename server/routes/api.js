@@ -14,37 +14,6 @@ var fitBitService = require('../service/fitBitService');
 var FitbitStrategy = require('passport-fitbit-oauth2').FitbitOAuth2Strategy;
 
 
-// passport.use(new FitbitStrategy({
-//         clientID:     '22CKGJ',
-//         clientSecret: '8786fc39bae197c08ca96acbab4ed7cf',
-//         callbackURL: "http://localhost:4200/api/fitbit/callback"
-//       },
-//       function(accessToken, refreshToken, profile, done) {
-//         console.log("the accessToken is", accessToken);
-//         return accessToken;
-//       }
-//     ));
-// Connect
-// const connection = (closure) => {
-//     return MongoClient.connect('mongodb://chris12:12chris@ds155315.mlab.com:55315/variantz-development', (err, db) => {
-//         if (err) return console.log(err);
-
-//         closure(db);
-//     });
-// };
-
-// var fitbitAuthenticate = passport.authenticate('fitbit', {
-//   successRedirect: '/auth/fitbit/success',
-//   failureRedirect: '/auth/fitbit/failure'
-// });
-
-
-
-// router.get('/api/fitbit/success', function(req, res, next) {
-//   res.send(req.user);
-// });
-
-
 // Error handling
 const sendError = (err, res) => {
     response.status = 501;
