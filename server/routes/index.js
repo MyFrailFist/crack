@@ -6,13 +6,11 @@ module.exports = function(app) {
     var fitbitRouter = require('./api/fitbitRouter')
     var weatherRouter = require('./api/weatherRouter')
 
-
     app.use('/api/', routes);
     app.use('/api/merchanx', merchanxRouter);
     app.use('/api/maintenance', maintenanceRouter);
     app.use('/api/fitbit', fitbitRouter);
     app.use('/api/weather', weatherRouter);
-    app.use('/api/announcement', announcementRouter);
 
     // Send all other requests to the Angular app
     app.get('*', (req, res) => {

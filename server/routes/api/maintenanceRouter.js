@@ -13,6 +13,8 @@ maintenanceRouter.route('/')
 		console.log("hello")
 	})
 
+maintenanceRouter.route('/getallreoirt').
+
 
 
 module.exports = maintenanceRouter;
