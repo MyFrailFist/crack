@@ -1,12 +1,14 @@
 module.exports = function(app) {
 
+    var path = require('path'); 
     var routes = require('./index')
     var merchanxRouter = require('./api/merchanxRouter')
     var maintenanceRouter = require('./api/maintenanceRouter')
     var fitbitRouter = require('./api/fitbitRouter')
     var weatherRouter = require('./api/weatherRouter')
 
-    app.use('/api/', routes);
+    console.log('checkhceck')
+    //app.use('/api/', routes);
     app.use('/api/merchanx', merchanxRouter);
     app.use('/api/maintenance', maintenanceRouter);
     app.use('/api/fitbit', fitbitRouter);
