@@ -1,13 +1,16 @@
 module.exports = function(app) {
 
-    var routes = require('./index');
-    var merchanxRouter = require('./api/merchanxRouter');
-    var maintenanceRouter = require('./api/maintenanceRouter');
-    var fitbitRouter = require('./api/fitbitRouter');
-    var weatherRouter = require('./api/weatherRouter');
-    var eventCalendarRouter = require("./api/eventCalendarRouter");
-    var announcementRouter = require("./api/announcementRouter");
+    var path = require('path'); 
+    var routes = require('./index')
+    var merchanxRouter = require('./api/merchanxRouter')
+    var maintenanceRouter = require('./api/maintenanceRouter')
+    var fitbitRouter = require('./api/fitbitRouter')
+    var weatherRouter = require('./api/weatherRouter')
+    var eventCalendarRouter = require("./api/eventCalendarRouter")
+    var announcementRouter = require("./api/announcementRouter")
 
+    console.log('checkhceck')
+    //app.use('/api/', routes);
     app.use('/api/merchanx', merchanxRouter);
     app.use('/api/maintenance', maintenanceRouter);
     app.use('/api/fitbit', fitbitRouter);

@@ -48,11 +48,8 @@ import { WeatherService } from './services/weather.service';
 import { OnboardingComponent } from './onboarding/onboarding.component';
 import { DatasyncComponent } from './datasync/datasync.component';
 import { MerchanXComponent } from './merchan-x/merchan-x.component';
-// <<<<<<< HEAD
+
 import { FitbitComponent } from './iot/fitbit/fitbit.component'; 
-// =======
-import { NEAComponent } from './nea/nea.component';
-// >>>>>>> development
 // import { AlertService } from './services/alert.service';
 
 import { NeaComponent } from './nea/nea.component'; 
@@ -70,12 +67,8 @@ import { NeaComponent } from './nea/nea.component';
     OnboardingComponent,
     DatasyncComponent,
     MerchanXComponent,
-// <<<<<<< HEAD
     FitbitComponent,
-    NeaComponent,
-// =======
-    NEAComponent
-// >>>>>>> development
+    NeaComponent
     // UserSignUpComponent,
     // AlertComponent,
     // ServicesComponent,
