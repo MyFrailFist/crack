@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {HttpClientModule} from "@angular/common/http";
 
 import 'd3';
 import 'nvd3';
@@ -83,7 +84,8 @@ import {ClickOutsideModule} from 'ng-click-outside';
       KnobModule,
       ChartistModule,
       NvD3Module,
-      ClickOutsideModule
+      ClickOutsideModule,
+      HttpClientModule
   ],
   declarations: [
       AccordionAnchorDirective,
@@ -143,7 +145,8 @@ import {ClickOutsideModule} from 'ng-click-outside';
       KnobModule,
       ChartistModule,
       NvD3Module,
-      ClickOutsideModule
+      ClickOutsideModule,
+      HttpClientModule
   ],
   providers: [
       MenuItems,

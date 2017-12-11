@@ -7,11 +7,11 @@ const path = require('path');
 const http = require('http');
 
 
-
 var passport = require('passport');
 var session = require('express-session');
 
-mongoose.connect('mongodb://chris12:12chris@ds155315.mlab.com:55315/variantz-development');
+// mongoose.connect('mongodb://chris12:12chris@ds155315.mlab.com:55315/variantz-development');
+mongoose.connect('mongodb://pseudo:hahaha123@ds135876.mlab.com:35876/variantz_test');
 
 //mongoose.connect(config.mongoUrlProduction)
 var db = mongoose.connection;
@@ -22,6 +22,7 @@ db.once('open', function () {
   });
 
 const app = express();
+
 
 var io = socket_io();
 app.io = io;
@@ -52,7 +53,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 //app.use('/api', api);
 
 // API location
-var routes = require('./server/routes')(app);
+var routes = require('./server/routes/index.js')(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

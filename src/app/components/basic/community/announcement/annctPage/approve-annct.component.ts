@@ -4,7 +4,7 @@ import { ListAnnctService } from "../shared/list-annct.service";
 import { PostAnnctService } from "../shared/post-annct.service";
 import { EditAnnctService } from "../shared/edit-annct.service";
 import { AuthService } from "../../../../../core/auth.service";
-import { UserService } from "../../../../../services/user.service";
+// import { UserService } from "../../../../../services/user.service";
 import { Announcement } from "../shared/announcement";
 import { DatePipe } from "@angular/common";
 import { NgForm } from "@angular/forms";
@@ -20,21 +20,8 @@ import { Router, ActivatedRoute } from "@angular/router";
 export class ApproveAnnctComponent implements OnInit {
 
   listOfAnnct: Announcement[] = [];
- //PRevent error
- private dummyAnnct = {
-    $key: null,
-    refToUserAnnct: null,
-    refToOtherAnnct: null,
-    title: "placeholder",
-    content: "placeholder",
-    date: null,
-    scope: "placeholder",
-    address: null,
-    userId: null,
-    userName: null,
-    approved: null
-  }
-  selectedAnnct = this.dummyAnnct;
+ 
+  selectedAnnct: Announcement;
 
   private user;
 
@@ -42,15 +29,14 @@ export class ApproveAnnctComponent implements OnInit {
     private listAnnctSvc: ListAnnctService,
     private postAnnctSvc: PostAnnctService,
     private editAnnctSvc: EditAnnctService,
-    private userSvc: UserService,
     private firebaseAuth : AuthService,
     private router: Router,
     private route: ActivatedRoute
     ) { }
 
   ngOnInit() {
-  	var userId: string = this.firebaseAuth.authState.uid;
-  	this.userSvc.getUser(userId).subscribe(userInfo => this.user = userInfo);
+  	// var userId: string = this.firebaseAuth.authState.uid;
+  	// this.userSvc.getUser(userId).subscribe(userInfo => this.user = userInfo);
     //Stop people from entering this page.
     if(this.user.propertyManager !== true){
       alert("You cannot enter this page!")
@@ -58,9 +44,8 @@ export class ApproveAnnctComponent implements OnInit {
     }
 
   	this.listAnnctSvc.fetchAnnct(
-  		  this.user,
 		    "unapproved",
-		  fetchedAnnct => { this.listOfAnnct = fetchedAnnct.reverse() } )
+		  fetchedAnnct => { this.listOfAnnct = fetchedAnnct } )
   		//Once this.listOfAnnct is updated, ngFor should list out all the announcements through observable.
   }
 
@@ -72,7 +57,7 @@ export class ApproveAnnctComponent implements OnInit {
 
   deleteAnnct(annct: Announcement, reasonForm?: NgForm){
     //When true is returned, annct is deleted, else, annct is not
-    var result = this.editAnnctSvc.deleteAnnct(this.user, annct, reasonForm)
+    var result = this.editAnnctSvc.deleteAnnct(annct, reasonForm)
     if(result === true){
       document.getElementById("closeAnnctButton").click()
       document.getElementById("reasonModalBody").innerHTML = "<h1>Announcement Deleted</h1>";
@@ -87,8 +72,8 @@ export class ApproveAnnctComponent implements OnInit {
      document.getElementById("submitReason").click()
   }
 
-  approveAnnct(annct : Announcement){
-     this.editAnnctSvc.approveAnnct(annct);
-     document.getElementById("closeAnnctButton").click()
-   }
+  // approveAnnct(annct : Announcement){
+  //    this.editAnnctSvc.approveAnnct(annct);
+  //    document.getElementById("closeAnnctButton").click()
+  //  }
 }

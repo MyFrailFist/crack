@@ -25,16 +25,16 @@
       <button id="closeAnnctButton" type="button" class="close basic-close-light-box" (click)="modalOverflow.hide()">
           <span aria-hidden="true">&times;</span>
       </button>
-      <h5 class="font-header">{{selectedAnnct.title}}</h5>
-      <p>Type: {{selectedAnnct.scope}}</p>
-      <p>Date posted: {{selectedAnnct.date | date: "short"}}</p>
+      <h5 class="font-header">{{selectedAnnct?.title}}</h5>
+      <p>Type: {{selectedAnnct?.scope}}</p>
+      <p>Date posted: {{selectedAnnct?.date | date: "short"}}</p>
       <h5>Content</h5>
       <div class="overflow-container" slimScroll railVisible="true" railColor="#004a6d" width="100%" height="500px" size="8px" color="#999" opacity="0.6" allowPageScroll="false">
         <!--Used innerHTML to insert content as content is html as well-->
       </div>
       <div class="app-modal-footer">
-          <button *ngIf="user.$key === selectedAnnct.userId || user.propertyManager === true" type="button" class="btn btn-danger waves-effect" (click)="deleteAnnct(selectedAnnct)">Delete</button>
-          <button *ngIf="user.$key === selectedAnnct.userId" type="button" class="btn btn-primary mobtn" (click)="editAnnct(selectedAnnct)">Edit</button>
+          <!-- <button *ngIf="user.uid === selectedAnnct.uid || user.propertyManager === true" type="button" class="btn btn-danger waves-effect" (click)="deleteAnnct(selectedAnnct)">Delete</button>
+          <button *ngIf="user.uid === selectedAnnct.uid" type="button" class="btn btn-primary mobtn" (click)="editAnnct(selectedAnnct)">Edit</button> -->
       </div>
   </div>
 </app-modal-basic>

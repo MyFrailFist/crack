@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
+// <<<<<<< HEAD
 import { Observable } from 'rxjs/Observable';
 
 import { DataService } from '../services/data.service';
@@ -62,7 +62,7 @@ export class NeaComponent {
 	    }
 	 }
 }
-=======
+// =======
 
 @Component({
   selector: 'app-nea',
@@ -77,4 +77,4 @@ export class NEAComponent implements OnInit {
   }
 
 }
->>>>>>> development
+// >>>>>>> development

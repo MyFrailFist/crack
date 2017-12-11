@@ -1,14 +1,16 @@
+'use strict'
+
 var mongoose = require("mongoose");
 
 var userEventSchema = new mongoose.Schema({
 	uid: String,
-	date: {
+	color: {
 		primary: String,
 		secondary: String
 	},
 	title: String,
 	description: String,
-	color: {
+	date: {
 		startDate: Number,
 		endDate: Number,
 		dateCreated: Date

@@ -1,7 +1,7 @@
 <button id="modalButton" type="button" class="btn btn-default waves-effect" (click)="modalDefault.show()" style="display:none;"></button>
 <app-modal-basic #modalDefault>
     <div class="app-modal-header">
-        <h4 class="modal-title">Rename "{{selectedFile.name}}{{selectedFile.extension}}"</h4>
+        <h4 class="modal-title">Rename "{{selectedFile?.name}}{{selectedFile?.extension}}"</h4>
         <button type="button" class="close basic-close" (click)="modalDefault.hide()">
             <span aria-hidden="true">&times;</span>
         </button>

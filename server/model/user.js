@@ -1,9 +1,11 @@
+'use strict'
+
 var mongoose = require("mongoose");
 
 var userSchema = new mongoose.Schema({
-	//use mongoDb _id for uid
+	uid: String,
 	name: String,
-	address: [{type: mongoose.Schema.Types.ObjectId, ref: "Address"}],
+	address: [{type: mongoose.Schema.Types.ObjectId, ref: "address"}],
 	phoneNumber: Number,
 	email: String,
 	resident: Boolean,

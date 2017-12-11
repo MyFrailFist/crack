@@ -44,7 +44,7 @@ export class EditAnnctComponent implements OnInit {
 
   ngOnInit() {
     this.selectedAnnct = this.shareSelectedAnnct.getAnnct()
-    this.userSvc.getUser(this.userId).subscribe(userInfo => this.user = userInfo);
+    // this.userSvc.getUser(this.userId).subscribe(userInfo => this.user = userInfo);
     this.editorContent = this.selectedAnnct.content;
       //console.log('you can use the quill instance object to do something', this.editor);
       // this.editor.disable();
