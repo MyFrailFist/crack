@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
 import { Observable } from 'rxjs/Observable';
 
 import { DataService } from '../services/data.service';
@@ -62,19 +61,4 @@ export class NeaComponent {
 	    }
 	 }
 }
-=======
 
-@Component({
-  selector: 'app-nea',
-  templateUrl: './nea.component.html',
-  styleUrls: ['./nea.component.css']
-})
-export class NEAComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
->>>>>>> development
