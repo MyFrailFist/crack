@@ -26,7 +26,6 @@ import { ListEventService } from "./shared/list-event.service";
 import { AddEventService } from "./shared/add-event.service";
 import { UserService } from "../../../services/user.service";
 import { AuthService } from "../../../core/auth.service";
-import { ConvertEventService } from "./shared/convert-event.service"
 
 import { User } from "../../../model/user";
 import { userEvent } from "./shared/event";
@@ -119,7 +118,7 @@ export class EventCalendarComponent implements OnInit {
   //   timeBeforeReminder: null,
   //   reminderDuration: null
   // }
-  private newEvent: userEvent;
+  // private newEvent: userEvent;
   private eventColor = colors.red.primary;
   private eventStart: Date = startOfDay(new Date());
   private eventEnd: Date = endOfDay(new Date());
@@ -130,7 +129,6 @@ export class EventCalendarComponent implements OnInit {
     private addEventSvc: AddEventService,
     private userSvc: UserService,
     private authSvc: AuthService,
-    private convertEventSvc: ConvertEventService
     ) { } 
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
@@ -165,29 +163,42 @@ export class EventCalendarComponent implements OnInit {
   }
 
   addEvent(eventForm: NgForm): void {
-    this.newEvent = new userEvent(eventForm.value.title, eventForm.value.description)
-    this.newEvent.color = { primary: this.eventColor, secondary: this.eventColor }
-    this.newEvent.date.startDate = this.eventStart.getTime()
-    this.newEvent.date.endDate = this.eventEnd.getTime()
-    this.addEventSvc.addEvent(this.newEvent, this.user)
+    // this.newEvent = new userEvent(eventForm.value.title, eventForm.value.description)
+    // this.newEvent.color = { primary: this.eventColor, secondary: this.eventColor }
+    // this.newEvent.date.startDate = this.eventStart.getTime()
+    // this.newEvent.date.endDate = this.eventEnd.getTime()
+    var newEvent: CalendarEvent = {
+      title: eventForm.value.title,
+      description: eventForm.value.description,
+      start: this.eventStart,
+      end: this.eventEnd,
+      color: { primary: this.eventColor, secondary: this.eventColor },
+      draggable: true,
+      resizable: {
+          beforeStart: true,
+          afterEnd: true
+      }
+    }
+
+    this.addEventSvc.addEvent(newEvent)
     this.refresh.next();
 
   }
 
   removeEvent(index: number){
     //this.events.splice(index, 1) // If observable dun work
-    this.addEventSvc.deleteEvent(this.eventList[index], this.user)
+    this.addEventSvc.deleteEvent(this.events[index])
   }
 
   editEvent(index: number){
-    let changedEvent = this.eventList[index]
-    let changedCalendarEvent = this.events[index]
-    changedEvent.title = changedCalendarEvent.title
-    changedEvent.date.startDate = changedCalendarEvent.start.getTime()
-    changedEvent.date.endDate = changedCalendarEvent.end.getTime()
-    changedEvent.color = changedCalendarEvent.color
+    // let changedEvent = this.eventList[index]
+    var changedCalendarEvent = this.events[index];
+    // changedEvent.title = changedCalendarEvent.title
+    // changedEvent.date.startDate = changedCalendarEvent.start.getTime()
+    // changedEvent.date.endDate = changedCalendarEvent.end.getTime()
+    // changedEvent.color = changedCalendarEvent.color
 
-    this.addEventSvc.editEvent(changedEvent, this.user)
+    this.addEventSvc.editEvent(changedCalendarEvent);
   }
 
   openEventModal(){
@@ -201,17 +212,18 @@ export class EventCalendarComponent implements OnInit {
   }
 
   ngOnInit() {
-    var userId = this.authSvc.authState.uid
-    this.userSvc.getUser(userId).subscribe( userInfo => this.user = userInfo )
-    this.listEventSvc.fetchEvent(
-      this.user,
-      (fetchEvent, calendarEvents) => {
-        this.events = calendarEvents
-        this.eventList = fetchEvent
-        this.eventsCopy = this.events
-      }
-
-      )
+    // var userId = this.authSvc.authState.uid
+    // this.userSvc.getUser(userId).subscribe( userInfo => this.user = userInfo )
+    // this.listEventSvc.fetchEvent(
+    //   this.user,
+    //   (fetchEvent, calendarEvents) => {
+    //     this.events = calendarEvents
+    //     this.eventList = fetchEvent
+    //     this.eventsCopy = this.events
+    //   }
+    this.listEventSvc.fetchEvent( (calendarEventList) => {
+      this.events = calendarEventList;
+    })
   }
 
 

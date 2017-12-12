@@ -2,7 +2,7 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {fadeInOutTranslate} from "../../../../../shared/elements/animation";
 import { PostAnnctService } from "../shared/post-annct.service";
 import { AuthService } from "../../../../../core/auth.service";
-import { UserService } from "../../../../../services/user.service";
+// import { UserService } from "../../../../../services/user.service";
 import { Announcement } from "../shared/announcement";
 import { NgForm } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
@@ -25,20 +25,21 @@ export class CreateAnnctComponent implements OnInit {
   private htmlContent;
   private title;
   private scope;
+  private annctAddress;
 
 
-  constructor(private postAnnctSvc: PostAnnctService,
-   private userSvc: UserService,
+  constructor(
+   private postAnnctSvc: PostAnnctService,
    private firebaseAuth : AuthService,
    private router: Router,
    private route: ActivatedRoute) { }
 
-  private userId: string = this.firebaseAuth.authState.uid;
-  private user;
+  // private userId: string = this.firebaseAuth.authState.uid;
+  // private user;
 
 
   ngOnInit() {
-    this.userSvc.getUser(this.userId).subscribe(userInfo => this.user = userInfo);
+    // this.userSvc.getUser(this.userId).subscribe(userInfo => this.user = userInfo);
     setTimeout(() => {
       this.editorContent = this.editorContent;
       //console.log('you can use the quill instance object to do something', this.editor);
@@ -56,7 +57,12 @@ export class CreateAnnctComponent implements OnInit {
   onAnnctSubmit(annctForm: NgForm) {
     this.title = annctForm.value.title
     this.scope = annctForm.value.scope
-    this.postAnnctSvc.postAnnounce(this.user, this.title, this.htmlContent, this.scope)
+    this.annctAddress = {
+      estate: annctForm.value.estate,
+      block: annctForm.value.block,
+      unit: annctForm.value.unit
+    }
+    this.postAnnctSvc.postAnnounce(this.title, this.htmlContent, this.scope, this.annctAddress)
     this.router.navigate([`../`], { relativeTo : this.route });
   }
 

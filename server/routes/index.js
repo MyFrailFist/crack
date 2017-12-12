@@ -6,6 +6,8 @@ module.exports = function(app) {
     var maintenanceRouter = require('./api/maintenanceRouter')
     var fitbitRouter = require('./api/fitbitRouter')
     var weatherRouter = require('./api/weatherRouter')
+    var eventCalendarRouter = require("./api/eventCalendarRouter")
+    var announcementRouter = require("./api/announcementRouter")
 
     console.log('checkhceck')
     //app.use('/api/', routes);
@@ -13,6 +15,8 @@ module.exports = function(app) {
     app.use('/api/maintenance', maintenanceRouter);
     app.use('/api/fitbit', fitbitRouter);
     app.use('/api/weather', weatherRouter);
+    app.use('/api/event-calendar', eventCalendarRouter);
+    app.use('/api/announcement/', announcementRouter);
 
     // Send all other requests to the Angular app
     app.get('*', (req, res) => {

@@ -20,23 +20,11 @@ import { Router, ActivatedRoute } from "@angular/router";
 export class BlockAnnctComponent implements OnInit {
 
   listOfAnnct: Announcement[] = [];
- //PRevent error
-  private dummyAnnct = {
-    $key: null,
-    refToUserAnnct: null,
-    refToOtherAnnct: null,
-    title: "placeholder",
-    content: "placeholder",
-    date: null,
-    scope: "placeholder",
-    address: null,
-    userId: null,
-    userName: null,
-    approved: null
-  }
-  selectedAnnct = this.dummyAnnct;
 
-  user;
+  selectedAnnct: Announcement;
+  user = {
+    uid: "abc"
+  }
 
   constructor(
     private listAnnctSvc: ListAnnctService,
@@ -49,12 +37,11 @@ export class BlockAnnctComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-  	var userId: string = this.firebaseAuth.authState.uid;
-  	this.userSvc.getUser(userId).subscribe(userInfo => this.user = userInfo);
+  	// var userId: string = this.firebaseAuth.authState.uid;
+  	// this.userSvc.getUser(userId).subscribe(userInfo => this.user = userInfo);
   	this.listAnnctSvc.fetchAnnct(
-  		  this.user,
 		    "block",
-		  fetchedAnnct => { this.listOfAnnct = fetchedAnnct.reverse() } )
+		  fetchedAnnct => { this.listOfAnnct = fetchedAnnct } )
   		//Once this.listOfAnnct is updated, ngFor should list out all the announcements through observable.
   }
 
@@ -66,7 +53,7 @@ export class BlockAnnctComponent implements OnInit {
 
   deleteAnnct(annct: Announcement, reasonForm?: NgForm){
     //When true is returned, annct is deleted, else, annct is not
-    var result = this.editAnnctSvc.deleteAnnct(this.user, annct, reasonForm)
+    var result = this.editAnnctSvc.deleteAnnct(annct, reasonForm)
     if(result === true){
       document.getElementById("closeAnnctButton").click()
       document.getElementById("reasonModalBody").innerHTML = "<h1>Announcement Deleted</h1>";

@@ -48,6 +48,7 @@ import { WeatherService } from './services/weather.service';
 import { OnboardingComponent } from './onboarding/onboarding.component';
 import { DatasyncComponent } from './datasync/datasync.component';
 import { MerchanXComponent } from './merchan-x/merchan-x.component';
+
 import { FitbitComponent } from './iot/fitbit/fitbit.component'; 
 // import { AlertService } from './services/alert.service';
 

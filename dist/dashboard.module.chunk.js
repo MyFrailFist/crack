@@ -8,7 +8,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".line-container {\n  height: 300px;\n  width: 100%;\n  display: block;\n}\n.gauge-container {\n  height: 300px;\n  width: 100%;\n  display: block;\n}", ""]);
+exports.push([module.i, ".line-container {\r\n  height: 300px;\r\n  width: 100%;\r\n  display: block;\r\n}\r\n.gauge-container {\r\n  height: 300px;\r\n  width: 100%;\r\n  display: block;\r\n}", ""]);
 
 // exports
 

@@ -17,19 +17,6 @@ export class ListFileComponent implements OnInit {
 
   listOfUploads: Upload[];
 
-  dummy: Upload = {
-    $key: null,
-    file: null,
-    nameRefToStorage: null,
-    size: null,
-    name: "placeholder",
-    url: null,
-    extension: ".placeholder",
-    progress: null,
-    createdOn: null,
-    userFileLibraryItem: null
-  }
-
   //Prevent error
   selectedFile;
 
@@ -67,7 +54,6 @@ export class ListFileComponent implements OnInit {
   ngOnInit() {
   	// this.listOfUploads = this.listFileSvc.deliverListOfUploaded()
   	// console.log("hi")
-    this.selectedFile = this.dummy;
   	this.listFileSvc.fetchData(uploads => {
   	this.listOfUploads = uploads
   })

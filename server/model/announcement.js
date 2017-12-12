@@ -1,3 +1,5 @@
+'use strict'
+
 var mongoose = require("mongoose");
 
 var announcementSchema = new mongoose.Schema({
@@ -13,3 +15,5 @@ var announcementSchema = new mongoose.Schema({
 })
 
 var announcement = mongoose.model("announcement", announcementSchema);
+
+module.exports = announcement;

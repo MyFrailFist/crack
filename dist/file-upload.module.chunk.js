@@ -8,7 +8,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#uploadInput {\n\t/*Hide input bar*/\n\tdisplay : none;\n}", ""]);
+exports.push([module.i, "#uploadInput {\r\n\t/*Hide input bar*/\r\n\tdisplay : none;\r\n}", ""]);
 
 // exports
 
@@ -21,7 +21,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/file-upload/file-upload.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-sm-12\">\n    <app-card [title]=\"'Your Files'\">\n\n      <div>\n        <input type=\"file\" (change)=\"singleUpload($event)\" id=\"uploadInput\">\n      </div>\n\n      <div class=\"container\">\n        <!--[disabled]=\"!pickedFile\" Took this NG directive away as it was no longer needed-->\n        <button (click)=\"openFileSelect()\" class = \"btn btn-primary\">Upload</button>\n        <br>\n        <br>\n        <app-list-file><spinner></spinner></app-list-file>\n      <div *ngIf = \"uploadingList[0]\" class=\"panel panel-primary\">\n        <div class=\"panel-heading bg-primary\">\n          Upload Progress\n        </div>\n        <div class=\"panel-body\">\n          <table class=\"table table-responsive\">\n\n            <tr *ngFor=\"let upload of uploadingList\" >\n              <td *ngIf=\"upload.progress < 100\" > Uploading: \"{{upload.name}}{{upload.extension}}\" , Completed: {{upload.progress}}%</td>\n              <td class=\"table-success\" *ngIf=\"upload.progress === 100\"> \"{{upload.name}}{{upload.extension}}\" Uploaded</td>\n            </tr>\n          </table>\n        </div>\n      </div>\n      </div>\n    </app-card>\n  </div>\n</div>"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-sm-12\">\r\n    <app-card [title]=\"'Your Files'\">\r\n\r\n      <div>\r\n        <input type=\"file\" (change)=\"singleUpload($event)\" id=\"uploadInput\">\r\n      </div>\r\n\r\n      <div class=\"container\">\r\n        <!--[disabled]=\"!pickedFile\" Took this NG directive away as it was no longer needed-->\r\n        <button (click)=\"openFileSelect()\" class = \"btn btn-primary\">Upload</button>\r\n        <br>\r\n        <br>\r\n        <app-list-file><spinner></spinner></app-list-file>\r\n      <div *ngIf = \"uploadingList[0]\" class=\"panel panel-primary\">\r\n        <div class=\"panel-heading bg-primary\">\r\n          Upload Progress\r\n        </div>\r\n        <div class=\"panel-body\">\r\n          <table class=\"table table-responsive\">\r\n\r\n            <tr *ngFor=\"let upload of uploadingList\" >\r\n              <td *ngIf=\"upload.progress < 100\" > Uploading: \"{{upload.name}}{{upload.extension}}\" , Completed: {{upload.progress}}%</td>\r\n              <td class=\"table-success\" *ngIf=\"upload.progress === 100\"> \"{{upload.name}}{{upload.extension}}\" Uploaded</td>\r\n            </tr>\r\n          </table>\r\n        </div>\r\n      </div>\r\n      </div>\r\n    </app-card>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -177,7 +177,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#fileOptionsDropdown{\n\tbackground: none;\n}\n\n#fileHeader{\n\twidth: 60%;\n}\n", ""]);
+exports.push([module.i, "#fileOptionsDropdown{\r\n\tbackground: none;\r\n}\r\n\r\n#fileHeader{\r\n\twidth: 60%;\r\n}\r\n", ""]);
 
 // exports
 
@@ -190,7 +190,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/file-upload/list-file/list-file.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<button id=\"modalButton\" type=\"button\" class=\"btn btn-default waves-effect\" (click)=\"modalDefault.show()\" style=\"display:none;\"></button>\n<app-modal-basic #modalDefault>\n    <div class=\"app-modal-header\">\n        <h4 class=\"modal-title\">Rename \"{{selectedFile.name}}{{selectedFile.extension}}\"</h4>\n        <button type=\"button\" class=\"close basic-close\" (click)=\"modalDefault.hide()\">\n            <span aria-hidden=\"true\">&times;</span>\n        </button>\n    </div>\n    <div class=\"app-modal-body\">\n        <form #renameForm=\"ngForm\" (ngSubmit)=\"renameFile(renameForm)\" (keydown.enter)=\"$event.preventDefault()\">\n\t        New name :\n\t        <input type=\"text\" name=\"newName\" ngModel>\n\t        <button id=\"submitForm\" type=\"submit\" style=\"display: none;\"></button>\n\t\t</form>\n    </div>\n    <div class=\"app-modal-footer\">\n        <button id=\"closeModal\" class=\"btn btn-default waves-effect\" (click)=\"modalDefault.hide()\">Close</button>\n        <button type=\"button\" class=\"btn btn-primary waves-effect waves-light\" (click)=\"dismissModalSubmit()\">Save changes</button> \n    </div>\n</app-modal-basic>\n\n\n<table class=\"table table-responsive\">\n\t<thead class=\"thead-light\">\n\t\t<tr>\n\t\t\t<th id=\"fileHeader\">File</th>\n\t\t\t<th>Date Uploaded</th>\n\t\t\t<th>File size</th>\n\t\t\t<th></th>\n\t\t</tr>\n\t</thead>\n\t\t<tr *ngFor=\"let file of listOfUploads\">\n\t\t\t<td>{{file.name}}{{file.extension}}</td>\n\t\t\t<td>{{file.createdOn | date: \"short\"}}</td>\n\t\t\t<td>{{file.size[0]}}{{file.size[1]}}</td>\n\t\t\t<td>\n\t\t\t\t<div ngbDropdown class=\"dropdown-default dropdown open\" id=\"fileOptionsDropdown\">\n\t                <button ngbDropdownToggle class=\"btn btn-default dropdown-toggle waves-effect waves-light \" type=\"button\" id=\"dropdown1\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"true\">...</button>\n\t                <div ngbDropdownMenu class=\"dropdown-menu\" aria-labelledby=\"dropdown1\" data-dropdown-in=\"fadeIn\" data-dropdown-out=\"fadeOut\">\n\t                    <a class=\"dropdown-item waves-light waves-effect\" href=\"{{file.url}}\">Download</a>\n\t                    <a class=\"dropdown-item waves-light waves-effect\" (click)=\"renameSelectFile(file)\">Rename</a>\n\t                    <a class=\"dropdown-item waves-light waves-effect\" (click)=\"deleteFile(file)\">Delete</a>\n\t                </div>\n\t            </div>\n\t\t\t</td>\n\t\t</tr>\n\n</table>\n\n"
+module.exports = "<button id=\"modalButton\" type=\"button\" class=\"btn btn-default waves-effect\" (click)=\"modalDefault.show()\" style=\"display:none;\"></button>\r\n<app-modal-basic #modalDefault>\r\n    <div class=\"app-modal-header\">\r\n        <h4 class=\"modal-title\">Rename \"{{selectedFile?.name}}{{selectedFile?.extension}}\"</h4>\r\n        <button type=\"button\" class=\"close basic-close\" (click)=\"modalDefault.hide()\">\r\n            <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n    </div>\r\n    <div class=\"app-modal-body\">\r\n        <form #renameForm=\"ngForm\" (ngSubmit)=\"renameFile(renameForm)\" (keydown.enter)=\"$event.preventDefault()\">\r\n\t        New name :\r\n\t        <input type=\"text\" name=\"newName\" ngModel>\r\n\t        <button id=\"submitForm\" type=\"submit\" style=\"display: none;\"></button>\r\n\t\t</form>\r\n    </div>\r\n    <div class=\"app-modal-footer\">\r\n        <button id=\"closeModal\" class=\"btn btn-default waves-effect\" (click)=\"modalDefault.hide()\">Close</button>\r\n        <button type=\"button\" class=\"btn btn-primary waves-effect waves-light\" (click)=\"dismissModalSubmit()\">Save changes</button> \r\n    </div>\r\n</app-modal-basic>\r\n\r\n\r\n<table class=\"table table-responsive\">\r\n\t<thead class=\"thead-light\">\r\n\t\t<tr>\r\n\t\t\t<th id=\"fileHeader\">File</th>\r\n\t\t\t<th>Date Uploaded</th>\r\n\t\t\t<th>File size</th>\r\n\t\t\t<th></th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t\t<tr *ngFor=\"let file of listOfUploads\">\r\n\t\t\t<td>{{file.name}}{{file.extension}}</td>\r\n\t\t\t<td>{{file.createdOn | date: \"short\"}}</td>\r\n\t\t\t<td>{{file.size[0]}}{{file.size[1]}}</td>\r\n\t\t\t<td>\r\n\t\t\t\t<div ngbDropdown class=\"dropdown-default dropdown open\" id=\"fileOptionsDropdown\">\r\n\t                <button ngbDropdownToggle class=\"btn btn-default dropdown-toggle waves-effect waves-light \" type=\"button\" id=\"dropdown1\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"true\">...</button>\r\n\t                <div ngbDropdownMenu class=\"dropdown-menu\" aria-labelledby=\"dropdown1\" data-dropdown-in=\"fadeIn\" data-dropdown-out=\"fadeOut\">\r\n\t                    <a class=\"dropdown-item waves-light waves-effect\" href=\"{{file.url}}\">Download</a>\r\n\t                    <a class=\"dropdown-item waves-light waves-effect\" (click)=\"renameSelectFile(file)\">Rename</a>\r\n\t                    <a class=\"dropdown-item waves-light waves-effect\" (click)=\"deleteFile(file)\">Delete</a>\r\n\t                </div>\r\n\t            </div>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\r\n</table>\r\n\r\n"
 
 /***/ }),
 
@@ -218,18 +218,6 @@ var ListFileComponent = (function () {
     function ListFileComponent(listFileSvc, uploadSvc) {
         this.listFileSvc = listFileSvc;
         this.uploadSvc = uploadSvc;
-        this.dummy = {
-            $key: null,
-            file: null,
-            nameRefToStorage: null,
-            size: null,
-            name: "placeholder",
-            url: null,
-            extension: ".placeholder",
-            progress: null,
-            createdOn: null,
-            userFileLibraryItem: null
-        };
     }
     //Modal methods
     ListFileComponent.prototype.openMyModal = function (event) {
@@ -257,7 +245,6 @@ var ListFileComponent = (function () {
         var _this = this;
         // this.listOfUploads = this.listFileSvc.deliverListOfUploaded()
         // console.log("hi")
-        this.selectedFile = this.dummy;
         this.listFileSvc.fetchData(function (uploads) {
             _this.listOfUploads = uploads;
         });
