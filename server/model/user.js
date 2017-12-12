@@ -4,7 +4,6 @@ var mongoose = require("mongoose");
 
 var userSchema = new mongoose.Schema({
 	uid: String,
-	name: String,
 	address: [{type: mongoose.Schema.Types.ObjectId, ref: "address"}],
 	phoneNumber: Number,
 	email: String,

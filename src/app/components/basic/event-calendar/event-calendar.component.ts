@@ -223,6 +223,7 @@ export class EventCalendarComponent implements OnInit {
     //   }
     this.listEventSvc.fetchEvent( (calendarEventList) => {
       this.events = calendarEventList;
+      console.log(this.events);
     })
   }
 

@@ -20,7 +20,7 @@ announcementRouter.route("/delete")
 
 announcementRouter.route("/")
 	.post(function(req,res) {
-		announcementCtrl.addAnnouncement(req,body);
+		announcementCtrl.addAnnouncement(req.body);
 	});
 
 announcementRouter.route("/update")

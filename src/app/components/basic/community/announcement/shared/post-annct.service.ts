@@ -6,6 +6,10 @@ import { HttpClient, HttpHeaders} from "@angular/common/http";
 
 import * as firebase from "firebase";
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable()
 export class PostAnnctService {
 
@@ -21,10 +25,12 @@ export class PostAnnctService {
     //Set block/property announcement to unapproved if user is not an property admin
     if(["property","block"].indexOf(this.announceToPost.scope) > -1 ){
       this.announceToPost.approved = false;
+    } else {
+      this.announceToPost.approved = true;
     }
 
     var jsonAnnouncement = JSON.stringify(this.announceToPost);
-    this.http.post("/api/announcement/", jsonAnnouncement)
+    this.http.post("/api/announcement/", jsonAnnouncement, httpOptions)
       .subscribe();
 
   	// if(scope === "property"){

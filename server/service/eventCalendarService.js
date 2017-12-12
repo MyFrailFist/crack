@@ -5,6 +5,7 @@ var userEvent = require("../model/userEvent");
 
 //Fetch raw user event
 // var uid = getUidMethod();
+var uid = "hahah123";
 
 
 function getUserEvent(callback) {

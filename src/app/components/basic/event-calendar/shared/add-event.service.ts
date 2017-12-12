@@ -9,6 +9,10 @@ import "rxjs/add/operator/map";
 
 import * as firebase from "firebase";
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable()
 export class AddEventService {
  
@@ -24,7 +28,7 @@ export class AddEventService {
 
   	// eventDbRef.update(eventKey, { id : eventKey })
     var jsonNewEvent = JSON.stringify(event);
-    this.http.post("/api/event-calendar", jsonNewEvent)
+    this.http.post("/api/event-calendar", jsonNewEvent, httpOptions)
       .subscribe();
 
 
@@ -34,7 +38,7 @@ export class AddEventService {
   	// let eventDbRef = this.db.object(`eventCalendar/${user.address.estate}/${user.$key}/${event.id}`)
   	// eventDbRef.remove()
     var jsonEvent = JSON.stringify(event);
-    this.http.post("/api/event-calendar/delete", jsonEvent)
+    this.http.post("/api/event-calendar/delete", jsonEvent, httpOptions)
       .subscribe();
       //Subscribe neded to make actual request as HttpClient post is just a blueprint for the request.
 
@@ -44,7 +48,7 @@ export class AddEventService {
     // let eventDbRef = this.db.object(`eventCalendar/${user.address.estate}/${user.$key}/${event.id}`)
     // eventDbRef.update(event)
     var jsonEvent = JSON.stringify(event);
-    this.http.post("/api/event-calendar/update", jsonEvent)
+    this.http.post("/api/event-calendar/update", jsonEvent, httpOptions)
       .subscribe();
   }
 

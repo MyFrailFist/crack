@@ -1,6 +1,6 @@
 'use strict'
 
-var eventCalenderSvc = require("../service/eventCalendarService");
+var eventCalendarSvc = require("../service/eventCalendarService");
 
 //Convert my own event model to EventCalendar.
 function convertToCalendarEvent(event) {
@@ -25,8 +25,8 @@ function convertToUserEvent(event) {
 		title: event.title,
 		description: event.description,
 		date: {
-			startDate: event.start.getTime(),
-			endDate: event.end.getTime(),
+			startDate: new Date(event.start).getTime(),
+			endDate: new Date(event.end).getTime(),
 			dateCreated: new Date()
 		},
 		draggable: event.draggable,
@@ -35,29 +35,32 @@ function convertToUserEvent(event) {
 }
 
 function getCalendarEvent(callback) {
-	eventCalenderSvc.getUserEvent(function(userEvent){
+	var calendarEvents;
+
+	eventCalendarSvc.getUserEvent(function(userEvent){
 		calendarEvents = userEvent.map( event => convertToCalendarEvent(event));
 		callback(calendarEvents);
 	})
 }
 
 function deleteCalendarEvent(calendarEvent) {
-	var calenderEventObject = JSON.parse(calendarEvent),
-		userEventObject = convertToUserEvent(calenderEventObject);
-	eventCalendarSvc.deleteUserEvent(userEventObject);
+	var userEvent = convertToUserEvent(calendarEvent);
+
+	eventCalendarSvc.deleteUserEvent(userEvent);
 
 }
 
 function addCalendarEvent(calendarEvent) {
-	var calendarEventObject = JSON.parse(userEvent),
-		userEventObject = convertToUserEvent(calenderEventObject);
-	eventCalendarSvc.addUserEvent(userEventObject);
+	console.log(calendarEvent);
+	var userEvent = convertToUserEvent(calendarEvent);
+
+	eventCalendarSvc.addUserEvent(userEvent);
 }
 
 function updateCalendarEvent(calendarEvent) {
-	var calendarEventObject = JSON.parse(userEvent),
-		userEventObject = convertToUserEvent(calenderEventObject);
-	eventCalendarSvc.updateUserEvent(userEventObject);
+	var userEvent = convertToUserEvent(calendarEvent);
+
+	eventCalendarSvc.updateUserEvent(userEvent);
 }
 
 module.exports = { 

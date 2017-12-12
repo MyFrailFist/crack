@@ -8,6 +8,10 @@ import { NgForm } from "@angular/forms";
 import { HttpClient, HttpHeaders} from "@angular/common/http";
 
 // import * as firebase from "firebase";
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 
 @Injectable()
 export class EditAnnctService {
@@ -25,7 +29,7 @@ export class EditAnnctService {
 	 //  let deleteFromUserAnnct = this.db.object(`announcements/${annct.address.estate}/userAnnct/${annct.refToUserAnnct}`)
 	 //  deleteFromUserAnnct.remove()
    var jsonAnnouncement = JSON.stringify(annct);
-   this.http.post("/api/announcement/delete", jsonAnnouncement)
+   this.http.post("/api/announcement/delete", jsonAnnouncement, httpOptions)
      .subscribe()
   }
 
@@ -54,7 +58,7 @@ export class EditAnnctService {
     annct.title = title.concat("(Edited)");
     annct.date = new Date();
     var jsonAnnouncement = JSON.stringify(annct);
-    this.http.post("/api/announcement/update", jsonAnnouncement)
+    this.http.post("/api/announcement/update", jsonAnnouncement, httpOptions)
       .subscribe();
   	// if(annct.scope === "property"){
   	// 	let oldPropAnnct = this.db.object(`announcements/${annct.address.estate}/broadcast/${annct.refToOtherAnnct}`)

@@ -16,7 +16,7 @@ module.exports = function(app) {
     app.use('/api/fitbit', fitbitRouter);
     app.use('/api/weather', weatherRouter);
     app.use('/api/event-calendar', eventCalendarRouter);
-    app.use('/api/announcement', announcementRouter);
+    app.use('/api/announcement/', announcementRouter);
 
     // Send all other requests to the Angular app
     app.get('*', (req, res) => {

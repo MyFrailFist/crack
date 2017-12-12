@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 // import "rxjs/add/operator/toPromise";
 import "rxjs/add/operator/map";
+import { Observable } from "rxjs";
 
 @Injectable()
 export class ListAnnctService {
@@ -21,6 +22,7 @@ export class ListAnnctService {
   			callback(anncts);
   		});
   }
+
 
   //Subscribe to data at announcement component.
   // fetchAnnct (user: User, scope: string, exportData: (listOfAnnct: Announcement[]) => void) {

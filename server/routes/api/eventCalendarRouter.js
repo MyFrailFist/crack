@@ -10,6 +10,7 @@ eventCalendarRouter.route("/")
 	.get(function(req,res) {
 		eventCalendarCtrl.getCalendarEvent(function(calendarEvent){
 			res.json(calendarEvent);
+
 		})
 	})
 

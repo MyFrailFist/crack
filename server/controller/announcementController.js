@@ -7,24 +7,27 @@ function getAnnouncement(scope, callback) {
 		annct.forEach(function(eachAnnct) {
 			var userAddress = user.address,
 				annctAddress = eachAnnct.address;
+
 			if(eachAnnct.approved === true || user.propertyManager === true) {
 				if(eachAnnct.scope === scope) {
 					if(scope === "estate" && annctAddress.estate === userAddress.estate) {
 						collectedAnnct.push(eachAnnct);
 					} else if(scope === "block" && annctAddress.block === userAddress.block) {
 						collectedAnnct.push(eachAnnct);
-					} else if(scope === "unit" && annctAddress.unit === userAddress.block) {
+					} else if(scope === "unit" && annctAddress.unit === userAddress.unit) {
 						collectedAnnct.push(eachAnnct);
 					} else if(scope === "unapproved") {
 						collectedAnnct.push(eachAnnct);
-					} else if(scope === "my" && eachAnnct.uid === user.uid) {
-						collectedAnnct.push(eachAnnct);
+					} else if(scope === "personal") {
+						//TODO
 					}
+				} else if(scope === "my" && eachAnnct.uid === user.uid) {
+					collectedAnnct.push(eachAnnct);
 				}
 			}
 		});
 			
-		callback(collectedAnnct);
+		callback(collectedAnnct.reverse());
 	});
 }
 

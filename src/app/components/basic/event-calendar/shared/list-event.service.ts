@@ -6,6 +6,8 @@ import { CalendarEvent } from "angular-calendar";
 // import { ConvertEventService } from "./convert-event.service";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
+import "rxjs/add/operator/map";
+
 @Injectable()
 export class ListEventService {
 

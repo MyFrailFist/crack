@@ -2,6 +2,15 @@ var announcement = require("../model/announcement"),
 	address = require("../model/address");
 
 //get user details here
+var user = {
+	uid: "hahaha1234",
+	address: {
+		estate: "hahaha123",
+		block: "hahaha123",
+		unit: "123"
+	},
+	username: "MAGICMAN"
+}
 
 function getAnnctFromDb(callback) {
 	address.find({estate: user.address.estate}, function(err, addr) {
@@ -9,9 +18,9 @@ function getAnnctFromDb(callback) {
 			console.log(err);
 		} else {
 			//get ObjectId of each address
-			annctObjectIds = annct.map(eachAnnct => eachAnnct._id);
+			addressObjectIds = addr.map(eachAddr => eachAddr._id);
 
-			announcement.find({address : {$in: annctObjectIds}})
+			announcement.find({address : {$in: addressObjectIds}})
 				.populate("address")
 				.exec(function(err, annct) {
 					if(err) {
@@ -25,14 +34,23 @@ function getAnnctFromDb(callback) {
 }
 
 function deleteAnnctFromDb(annct) {
-	announcement.findByIdAndRemove(annct._id, function(err) {
+	announcement.findByIdAndRemove(annct._id, function(err, removedAnnct) {
 		if(err) {
 			console.log(err);
+		} else {
+			//Not populated annct
+			//Delete associated address
+			address.findByIdAndRemove(removedAnnct.address, function(err, removedAddr) {
+				if(err) {
+					console.log(err);
+				}
+			});
 		}
 	});
 }
 
 function addAnnctToDb(annct) {
+	//Add in necessary details at server side.
 	annct.userName = user.username;
 	annct.uid = user.uid;
 
@@ -41,6 +59,9 @@ function addAnnctToDb(annct) {
 		block: annct.address.block,
 		unit: annct.address.unit
 	};
+
+	//Clear faulty address
+	delete annct.address;
 
 	announcement.create(annct, function(err, createdAnnct) {
 		if(err) {
@@ -60,4 +81,11 @@ function updateAnnctToDb(annct) {
 			console.log(err);
 		} 
 	});
+}
+
+module.exports = {
+	getAnnctFromDb: getAnnctFromDb,
+	deleteAnnctFromDb: deleteAnnctFromDb,
+	addAnnctToDb: addAnnctToDb,
+	updateAnnctToDb: updateAnnctToDb
 }
