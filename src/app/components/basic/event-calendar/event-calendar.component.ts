@@ -172,7 +172,7 @@ export class EventCalendarComponent implements OnInit {
       description: eventForm.value.description,
       start: this.eventStart,
       end: this.eventEnd,
-      color: this.eventColor,
+      color: { primary: this.eventColor, secondary: this.eventColor },
       draggable: true,
       resizable: {
           beforeStart: true,
@@ -223,7 +223,6 @@ export class EventCalendarComponent implements OnInit {
     //   }
     this.listEventSvc.fetchEvent( (calendarEventList) => {
       this.events = calendarEventList;
-      console.log(this.events);
     })
   }
 

@@ -2245,7 +2245,7 @@ var EventCalendarComponent = (function () {
             description: eventForm.value.description,
             start: this.eventStart,
             end: this.eventEnd,
-            color: this.eventColor,
+            color: { primary: this.eventColor, secondary: this.eventColor },
             draggable: true,
             resizable: {
                 beforeStart: true,
@@ -2289,7 +2289,6 @@ var EventCalendarComponent = (function () {
         //   }
         this.listEventSvc.fetchEvent(function (calendarEventList) {
             _this.events = calendarEventList;
-            console.log(_this.events);
         });
     };
     return EventCalendarComponent;
@@ -2449,6 +2448,8 @@ var _a;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListEventService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2461,6 +2462,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 // import { ConvertEventService } from "./convert-event.service";
 
+
 var ListEventService = (function () {
     // private fetchedEventList : FirebaseListObservable<Event[]>
     function ListEventService(http) {
@@ -2468,7 +2470,13 @@ var ListEventService = (function () {
     }
     ListEventService.prototype.fetchEvent = function (callback) {
         this.http.get("/api/event-calendar")
-            .subscribe(function (events) { return callback(events); });
+            .subscribe(function (events) {
+            events.forEach(function (eachEvent) {
+                eachEvent["start"] = new Date(eachEvent.start);
+                eachEvent["end"] = new Date(eachEvent.end);
+            });
+            callback(events);
+        });
     };
     return ListEventService;
 }());

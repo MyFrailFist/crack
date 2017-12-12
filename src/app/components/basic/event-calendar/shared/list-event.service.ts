@@ -19,7 +19,13 @@ export class ListEventService {
 
     fetchEvent(callback: (calendarEventList: CalendarEvent[]) => void) {
       this.http.get<CalendarEvent[]>("/api/event-calendar")
-        .subscribe( events => callback(events));
+        .subscribe( events => {
+          events.forEach( eachEvent => {
+            eachEvent["start"] = new Date(eachEvent.start);
+            eachEvent["end"] = new Date(eachEvent.end);
+          })
+          callback(events)
+        });
     }
   // fetchEvent(user: User, exportData : (listOfEvents :userEvent[], calendarEvents: CalendarEvent[]) => void){
   // 	var calendarEventList: CalendarEvent[] = [];

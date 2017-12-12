@@ -10,7 +10,7 @@ function convertToCalendarEvent(event) {
 		title: event.title,
 		description: event.description,
 		start: new Date(event.date.startDate),
-		end: new Date(event.date.startDate),
+		end: new Date(event.date.endDate),
 		color: event.color,
 		draggable: event.draggable,
 		resizable: event.resizable
@@ -51,7 +51,6 @@ function deleteCalendarEvent(calendarEvent) {
 }
 
 function addCalendarEvent(calendarEvent) {
-	console.log(calendarEvent);
 	var userEvent = convertToUserEvent(calendarEvent);
 
 	eventCalendarSvc.addUserEvent(userEvent);
