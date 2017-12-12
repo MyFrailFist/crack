@@ -1,52 +1,3 @@
-# Code modified
-This is the paths to the list of files modified/created by us.
-
-## All server-side files in "/server" folder
-Other server/nodejs files
-- server.js
-- /bin/www (FILE)
-
-## Event calendar
-
-Client side : /src/app/components/basic/event-calendar (DIR)
-
-## File library
-
-Client side : server side: /src/app/components/file-upload (DIR)
-
-## Announcement
-
-Client side : /src/app/components/basic/community/announcement (DIR)
-
-## Maintenance
-
-Client side : /src/app/components/basic/estate-maintenance (DIR)
-
-## Fitbit
-
-Client side : /src/app/iot/fitbit (DIR)
-
-## Weather Information
-
-Client side : /src/app/nea (DIR)
-
-## Authentication (Old, based on firebase)
-
-
-## MerchanX
-
-Client side : src/app/merchan-x (DIR)
-
-## Others
-- Firebase configuration
-	- /environments/environment.ts 
-
-- Services for the applications
-	- /src/app/services (DIR)
-
-
-# Contents of original README.md
-
 # MashAble
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
@@ -75,4 +26,3 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
