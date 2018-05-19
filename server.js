@@ -13,7 +13,8 @@ const http = require('http');
 var passport = require('passport');
 var session = require('express-session');
 
-mongoose.connect('mongodb://chris12:12chris@ds155315.mlab.com:55315/variantz-development');
+// mongoose.connect('mongodb://chris12:12chris@ds155315.mlab.com:55315/variantz-development');
+mongoose.connect('mongodb://cracker:crackcrack11@ds229380.mlab.com:29380/crack');
 // mongoose.connect('mongodb://pseudo:hahaha123@ds135876.mlab.com:35876/variantz_test');
 
 //mongoose.connect(config.mongoUrlProduction)
