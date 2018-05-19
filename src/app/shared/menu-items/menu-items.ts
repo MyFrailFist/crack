@@ -58,42 +58,43 @@ const MENUITEMS = [
         main: [
             {
                 state: 'basic',
-                name: 'Estate Services',
+                name: 'Services',
                 type: 'sub',
                 icon: 'ti-crown',
                 children: [
                     {
                         state: 'maintenance',
-                        name: 'Maintenance'
-                    },
-                    {
-                        state: 'appliance',  //link related
-                        name: 'Appliance'
-                    },
-                    {
-                        state: 'moving',
-                        name: 'Moving'
+                        name: 'Projects'
                     }
+                    // ,
+                    // {
+                    //     state: 'appliance',  //link related
+                    //     name: 'Appliance'
+                    // },
+                    // {
+                    //     state: 'moving',
+                    //     name: 'Moving'
+                    // }
                 ]
             },
             {
-                state: 'estate-facilities',
-                name: 'Estate Facilities',
-                type: 'link',
-                icon: 'ti-crown'
-            },
-            {
                 state: 'merchanX',
-                name: 'MerchanX',
+                name: 'My Stats',
                 type: 'link',
                 icon: 'ti-crown'
             },
-            {
-                state: 'fitbit',
-                name: 'Fitbit',
-                type: 'link',
-                icon: 'ti-crown'
-            },
+            // {
+            //     state: 'merchanX',
+            //     name: 'MerchanX',
+            //     type: 'link',
+            //     icon: 'ti-crown'
+            // },
+            // {
+            //     state: 'fitbit',
+            //     name: 'Fitbit',
+            //     type: 'link',
+            //     icon: 'ti-crown'
+            // },
             {
                 state: "basic",
                 name: "Community",

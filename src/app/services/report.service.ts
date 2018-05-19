@@ -52,6 +52,16 @@ export class ReportService {
       return this.reports;
   }
 
+  public deleteReport(reportName: string){
+      this.db.list('/reports', {
+        query:{
+          orderByChild:'name',
+          equalTo: reportName
+        }
+      }).remove();
+
+  }  
+
   public updateReport(reportObject: object):any{
     const itemPath = '${this.basePath}/${uid}';
     this.report.update(reportObject).catch(error=>this.handleError(error));
@@ -64,7 +74,7 @@ export class ReportService {
   }
 
 
-  public deleteReport(uid: string):any{
+  public deleteReport2(uid: string):any{
     const report=this.db.object(`${this.basePath}/${uid}`);
     report.remove();
   }

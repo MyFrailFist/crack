@@ -28,12 +28,13 @@ export class EstateMaintenanceComponent implements OnInit {
 
 	//model;
 
-	faultOptions: Array<IOption> = [{value: 'lighting', label: 'Lighting'},
-        {value: 'leakage', label: 'Leakage'},
-        {value: 'waste', label: 'Waste'},
-        {value: 'infrastructure', label: 'Infrastructure'},
-        {value: 'facilities', label: 'Facilities'},
-        {value: 'others', label: 'Others'}];
+	faultOptions: Array<IOption> = [
+        {value: 'Sales and Business', label: 'Sales and Business'},
+        {value: 'IT', label: 'IT'},
+        // {value: 'HR', label: 'HR'},
+        // {value: 'Welfare', label: 'Welfare'},
+        // {value: 'Marketing', label: 'Marketing'},
+        {value: 'Marketing', label: 'Marketing'}];
 
 	priorityOptions: Array<IOption> = [{value:'high', label: 'High'}, {value:'medium',label:'Medium'},{value:'low',label:'Low'}];
     
@@ -54,7 +55,10 @@ export class EstateMaintenanceComponent implements OnInit {
   		"priority" : null,
   		"resident":null,
   		"phoneNumber":null,
-  		"date":null
+  		"date":null,
+      "uid": null,
+      "name": null,
+      "masterSkills":null
 
   	}
 
@@ -78,11 +82,14 @@ export class EstateMaintenanceComponent implements OnInit {
   	this.ngOnInit();
   }
 
+  onClickMe(){
+    console.log("done")
+  }
 
-  deleteReport(uid: string){
-    console.log('deleting report of UID: '+uid);
-
-    this.db.deleteReport(uid);
+  deleteThis(reportName: string){
+    console.log('deleting report of UID: '+ reportName);
+    var reports = 'webfwbef'
+    this.db.deleteReport(reportName);
     this.ngOnInit();
 
   }

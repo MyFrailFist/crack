@@ -112,29 +112,29 @@ export class AuthService {
       .catch(error => console.log(error));
   }
 
-  // emailLogin(email: string, password: string) {
-  //   return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-  //     .then((user) => {
-  //       this.authState = user
-  //       this.updateUserData()
-  //     })
-  //     .catch(error => console.log(error));
-  // }
-
-  emailLogin(email:string, password: string){
-    var user = {
-        email: "hell",
-        password: "hell"
-    }
-    user.email = email
-    user.password = password
-    return this.http.post("/api/user/login",user).map(
-        result=> {
-          this.result = result
-        console.log("the results are", result)
-        }
-      )
+  emailLogin(email: string, password: string) {
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+      .then((user) => {
+        this.authState = user
+        this.updateUserData()
+      })
+      .catch(error => console.log(error));
   }
+
+  // emailLogin(email:string, password: string){
+  //   var user = {
+  //       email: "hell",
+  //       password: "hell"
+  //   }
+  //   user.email = email
+  //   user.password = password
+  //   return this.http.post("/api/user/login",user).map(
+  //       result=> {
+  //         this.result = result
+  //       console.log("the results are", result)
+  //       }
+  //     )
+  // }
 
 
 

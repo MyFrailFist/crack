@@ -14,8 +14,11 @@
             <img class="img-fluid" src="assets/images/logo.png" alt="Theme-Logo" />
           </a> -->
 
-          <ng-select [ngClass]="'ng-select'" [options]="userStatus"  name="userStatus"></ng-select>
+          <!-- <ng-select [ngClass]="'ng-select'" [options]="userStatus"  name="userStatus" ></ng-select> -->
 
+          <select class='select-option' required [(ngModel)]='optionSelected' (ngModelChange)='onOptionsSelected($event)'>
+              <option class='option' *ngFor='let option of options' [value]="option">{{option}}</option>
+          </select>
 
           <a (click)="onMobileMenu()" class="mobile-options">
             <i class="ti-more"></i>
@@ -231,7 +234,7 @@
               <li class="user-profile header-notification">
                 <a [routerLink]="['/']">
                   <img src="assets/images/user.png" alt="User-Profile-Image">
-                  <span>John Doe</span>
+                  <span>User</span>
                   <i class="ti-angle-down"></i>
                 </a>
                 <ul class="show-notification profile-notification">

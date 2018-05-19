@@ -69,7 +69,12 @@ export class AdminLayoutComponent implements OnInit {
   toggleOn = true;
   windowWidth: number;
 
-  userStatus: Array<IOption> = [{value:'Resident',label:"resident"}, {value:'Property\ Owner',label:"propertyOwner"}];
+  // userStatus: Array<IOption> = [{value:'Resident',label:"resident"}, {value:'Property\ Owner',label:"propertyOwner"}];
+
+  // roles = [{value:'Resident',label:"resident"}, {value:'Property\ Owner',label:"propertyOwner"}];
+
+  options = ["Maker","Taker"];
+  optionSelected: any;
 
   @ViewChild('searchFriends') search_friends: ElementRef;
   @ViewChild('toggleButton') toggle_button: ElementRef;

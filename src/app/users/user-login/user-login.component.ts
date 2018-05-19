@@ -29,7 +29,8 @@ export class UserLoginComponent implements OnInit {
        console.log(userObject);
        if(!userObject.onBoard){
          console.log("new user !")
-         this.router.navigate(['/onboarding']);
+         // this.router.navigate(['/onboarding']);
+         this.router.navigate(['/dashboard']);
        }
        else{
          this.router.navigate(['/dashboard']);
@@ -51,7 +52,12 @@ export class UserLoginComponent implements OnInit {
       .then(() => this.afterSignIn());
   }
 
-  
+  // signInWithCustom1(email: string, password:string): void {
+  //   this.auth.emailLogin2(email,password)
+  //     .then(()=>this.afterSignIn());
+  // }
+
+
 
 
 
