@@ -5,16 +5,18 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
 
 
 @Injectable()
 export class AuthService {
-
+  result: any;
   authState: any = null;
 
   constructor(private afAuth: AngularFireAuth,
     private db: AngularFireDatabase,
-    private router: Router) {
+    private router: Router,
+    private http: Http ) {  
 
     this.afAuth.authState.subscribe((auth) => {
       this.authState = auth
@@ -110,14 +112,31 @@ export class AuthService {
       .catch(error => console.log(error));
   }
 
-  emailLogin(email: string, password: string) {
-    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-      .then((user) => {
-        this.authState = user
-        this.updateUserData()
-      })
-      .catch(error => console.log(error));
+  // emailLogin(email: string, password: string) {
+  //   return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+  //     .then((user) => {
+  //       this.authState = user
+  //       this.updateUserData()
+  //     })
+  //     .catch(error => console.log(error));
+  // }
+
+  emailLogin(email:string, password: string){
+    var user = {
+        email: "hell",
+        password: "hell"
+    }
+    user.email = email
+    user.password = password
+    return this.http.post("/api/user/login",user).map(
+        result=> {
+          this.result = result
+        console.log("the results are", result)
+        }
+      )
   }
+
+
 
   // Sends email allowing user to reset password
   resetPassword(email: string) {

@@ -51,6 +51,10 @@ export class UserLoginComponent implements OnInit {
       .then(() => this.afterSignIn());
   }
 
+  
+
+
+
   signInWithFacebook(): void{
     console.log("hello, facebook sign in not available yet")
   }
