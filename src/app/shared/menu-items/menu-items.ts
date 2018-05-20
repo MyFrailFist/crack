@@ -121,7 +121,7 @@ const MENUITEMS = [
                 ]
             },
             {
-                state: 'file-upload',
+                state: 'testPage1',
                 name: 'File Upload',
                 type: 'link',
                 icon: 'ti-cloud-up'

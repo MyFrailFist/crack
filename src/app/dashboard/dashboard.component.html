@@ -1,60 +1,138 @@
 <div class="row">
     <!-- Visitor Chart Start-->
     <div class="col-md-6 col-xl-4">
-        <app-card [blockClass]="'card-body-big card-visitor-block'">
+        <app-card [blockClass]="'card-body-big card-MarketAnalysis-block'">
             <div class="row">
-                <div class="col-sm-8  card-visitor-button">
-                    <button class="btn btn-primary btn-icon"><i class="icofont icofont-user-alt-3"></i></button>
+                <div class="col-sm-12  card-MarketAnalysis-button">
+                    <button (click)=movePage() class="btn btn-primary btn-icon"><i class="icofont icofont-deal"></i></button>
                     <div class="card-contain">
-                        <h6>2,534</h6>
-                        <p class="text-muted f-18 m-0">Visitors</p>
+                        <p class="text-uppercase f-14 m-0">Project: Sentiment Analysis of New Product</p>
+                        <p class="text-muted f-12 m-0">Department: Sales and Business</p>
+                        <p class="f-12 m-0">Description(s):</p>
+                        <p class="f-12 m-0">The department seeks in-house data analysts to get current cosnumer sentiments on a competitor's product (substitute) to predict opportunities and successes for our new product</p>
+                        <p class="text-muted f-12 m-0"></p><font color = "blue"> <strong>Master skill(s):</strong> Social Media, Web scraping, Machine Learning, Data presentation </font>
+                        <p class="text-muted f-12 m-0"><font color = "red"> Apply by 31/05/2018 </font></p>
+                        <p></p><p class="text-muted f-12 m-0">Posted by: Sherman Gerk, Vice President (Sales)</p> <img alt="" class="img-responsive" src="assets/images/widget/Sherman.png">
                     </div>
                 </div>
-                <div class="col-sm-4 hidden-xs-down text-center">
+                <!-- <div class="col-sm-4 hidden-xs-down text-center">
                     <span class="visitor-chart"></span>
-                </div>
+                </div> -->
             </div>
         </app-card>
     </div>
+    <!-- Total Sale Chart Start-->
     <div class="col-md-6 col-xl-4">
         <app-card [blockClass]="'card-body-big card-visitor-block'">
             <div class="row">
-                <div class="col-sm-8 card-visitor-button">
-                    <button class="btn btn-warning btn-icon"><i class="icofont icofont-shopping-cart"></i></button>
+                <div class="col-sm-12  card-MarketAnalysis-button">
+                    <button class="btn btn-warning btn-icon"><i class="icofont icofont-presentation-alt"></i></button>
                     <div class="card-contain">
-                        <h6>5,782</h6>
-                        <p class="text-muted f-18 m-0">Total Sale</p>
+                        <p class="text-uppercase f-14 m-0">Project: New Opportunities in Greater China</p>
+                        <p class="text-muted f-12 m-0">Department: Marketing</p>
+                        <p class="f-12 m-0">Description(s):</p>
+                        <p class="f-12 m-0">The department seeks competent wechat users who know current strategies employed by Chinese firms in publicizing their product through the app, and also a proposal of how our firm can leverage this platform to penetrate into the Chinese Market. </p>
+                        <p class="text-muted f-12 m-0"></p><font color = "orange"> <strong>Master skill(s):</strong> Wechat, Social Media Marketing, Strategy, Research</font>
+                        <p class="text-muted f-12 m-0"><font color = "red"> Apply by 31/05/2018 </font></p>
+                        <p></p><p class="text-muted f-12 m-0">Posted by: Sally, Vice President (Marketing) </p> <img alt="" class="img-responsive" src="assets/images/widget/Sally.png">
                     </div>
                 </div>
-                <div class="col-sm-4 hidden-xs-down text-center">
+                <!--<div class="col-sm-4 hidden-xs-down text-center">
                     <span class="sale-chart"></span>
-                </div>
+                </div>-->
             </div>
         </app-card>
     </div>
+     <!-- Chart Start-->
     <div class="col-md-12 col-xl-4">
         <app-card [blockClass]="'card-body-big card-visitor-block'">
             <div class="row">
-                <div class="col-sm-8 card-visitor-button">
-                    <button class="btn btn-success btn-icon"><i class="icofont icofont-shopping-cart"></i></button>
+                <div class="col-sm-12  card-MarketAnalysis-button">
+                    <button class="btn btn-success btn-icon"><i class="icofont icofont-macbook"></i></button>
                     <div class="card-contain">
-                        <h6>2,534</h6>
-                        <p class="text-muted f-18 m-0">Revenue</p>
+                        <p class="text-uppercase f-14 m-0">Project: Open Session VBA Programming for All!</p>
+                        <p class="text-muted f-12 m-0">Department: IT</p>
+                        <p class="f-12 m-0">Description(s):</p>
+                        <p class="f-12 m-0">The department is providing a three-week lunch and learn to help 2 representatives from each department to pick up VBA so as to automate processes within their function. </p>
+                        <p class="text-muted f-12 m-0"></p><font color = "green"> <strong>Master skill(s):</strong> Word, Excel, Powerpoint</font>
+                        <p class="text-muted f-12 m-0"><font color = "red"> Apply by 31/05/2018 </font></p>
+                        <p></p><p class="text-muted f-12 m-0">Posted by: Caden Lee, Vice President (HR, LND) </p> <img alt="" class="img-responsive" src="assets/images/widget/Caden.png">
                     </div>
-                </div>
-                <div class="col-sm-4 hidden-xs-down text-center">
-                    <span class="resource-barchart"></span>
                 </div>
             </div>
         </app-card>
     </div>
     <!-- Visitor Chart End-->
+    <!-- Visitor Chart Start-->
+    <div class="col-md-6 col-xl-4">
+        <app-card [blockClass]="'card-body-big card-MarketAnalysis-block'">
+            <div class="row">
+                <div class="col-sm-12  card-MarketAnalysis-button">
+                    <button (click)=movePage() class="btn btn-danger btn-icon"><i class="icofont icofont-idea"></i></button>
+                    <div class="card-contain">
+                        <p class="text-uppercase f-14 m-0">Project: New Opportunities in Blockchain Technology</p>
+                        <p class="text-muted f-12 m-0">Department: Process Excellence</p>
+                        <p class="f-12 m-0">Description(s):</p>
+                        <p class="f-12 m-0">The department seeks proposals of possible use-case of blockchain within the organization. Teams can be formed to come up with an idea to push the use of blockchain in their area of expertise. Teams with feasible ideas can work with the current Blockchain team to push for the adoption of technology.</p>
+                        <p class="text-muted f-12 m-0"></p><font color = "purple"> <strong>Master skill(s):</strong> Blockchain, Own Subject-matter Expertise, Research, Programming</font>
+                        <p class="text-muted f-12 m-0"><font color = "red"> Apply by 31/05/2018 </font></p>
+                        <p></p><p class="text-muted f-12 m-0">Posted by: Ling Ngee Hung, Vice President (Process Excellence) </p> <img alt="" class="img-responsive" src="assets/images/widget/Ngeehung.png">
+                    </div>
+                </div>
+                <!-- <div class="col-sm-4 hidden-xs-down text-center">
+                    <span class="visitor-chart"></span>
+                </div> -->
+            </div>
+        </app-card>
+    </div>
+    <div class="col-md-6 col-xl-4">
+        <app-card [blockClass]="'card-body-big card-MarketAnalysis-block'">
+            <div class="row">
+                <div class="col-sm-12  card-MarketAnalysis-button">
+                    <button (click)=movePage() class="btn btn-warning btn-icon"><i class="icofont icofont-presentation-alt"></i></button>
+                    <div class="card-contain">
+                        <p class="text-uppercase f-14 m-0">Project: Webpage Design</p>
+                        <p class="text-muted f-12 m-0">Department: Marketing</p>
+                        <p class="f-12 m-0">Description(s):</p>
+                        <p class="f-12 m-0">The department seeks to improve current company website so as to attract more youth users to visit and browse our products. Fresh ideas are welcomed!</p>
+                        <p class="text-muted f-12 m-0"></p><font color = "orange"> <strong>Master skill(s):</strong> Front end web programming, Aesthetics</font>
+                        <p class="text-muted f-12 m-0"><font color = "red"> Apply by 31/05/2018 </font></p>
+                        <p></p><p class="text-muted f-12 m-0">Posted by: Sally, Vice President (Marketing) </p> <img alt="" class="img-responsive" src="assets/images/widget/Sally.png">
+                    </div>
+                </div>
+                <!-- <div class="col-sm-4 hidden-xs-down text-center">
+                    <span class="visitor-chart"></span>
+                </div> -->
+            </div>
+        </app-card>
+    </div>
+        <div class="col-md-6 col-xl-4">
+        <app-card [blockClass]="'card-body-big card-MarketAnalysis-block'">
+            <div class="row">
+                <div class="col-sm-12  card-MarketAnalysis-button">
+                    <button (click)=movePage() class="btn btn-info btn-icon"><i class="icofont icofont-emo-simple-smile"></i></button>
+                    <div class="card-contain">
+                        <p class="text-uppercase f-14 m-0">Course: How to Design a Project</p>
+                        <p class="text-muted f-12 m-0">Department: NIL</p>
+                        <p class="f-12 m-0">Description(s):</p>
+                        <p class="f-12 m-0">A training course designed to help project managers to efficiently and effectively identify real business issues and structure them into projects. </p>
+                        <p class="text-muted f-12 m-0"></p><font color = "brown"> <strong>Master skill(s):</strong> Own Subject-matter Expertise, Project Management</font>
+                        <p class="text-muted f-12 m-0"><font color = "red"> Apply by 31/05/2018 </font></p>
+                        <p></p><p class="text-muted f-12 m-0">Posted by: <i>Gather</i> Admin </p> <img alt="" class="img-responsive" src="assets/images/widget/Gatheradmin.png">
+                    </div>
+                </div>
+                <!-- <div class="col-sm-4 hidden-xs-down text-center">
+                    <span class="visitor-chart"></span>
+                </div> -->
+            </div>
+        </app-card>
+    </div>
 
     <!-- facebook Start -->
-    <div class="col-md-12 col-xl-8">
+    <div class="col-md-12 col-xl-12">
         <div class="card">
             <div class="card-body">
-                <h5>Combo Chart</h5>
+                <h5>Activities</h5>
             </div>
             <div class="card-body">
                 <google-chart [data]="comboChartData"></google-chart>
@@ -63,7 +141,7 @@
     </div>
 
     <!-- Start-->
-    <div class="col-md-12 col-xl-4">
+    <!-- <div class="col-md-12 col-xl-4">
         <div class="user-card-body card">
             <div class="card-body">
                 <div class="top-card text-center">
@@ -105,11 +183,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- End-->
 
     <!-- Total Sale Start -->
-    <div class="col-md-6 col-xl-4">
+   <!--  <div class="col-md-6 col-xl-4">
         <div class="card">
             <div class="card-body">
                 <h5>Total Sales</h5>
@@ -120,54 +198,54 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Total Sale Start -->
 
     <!-- Product table Start -->
-    <div class="col-md-6 col-xl-8">
+    <div class="col-md-6 col-xl-12">
         <div class="card">
             <div class="card-body">
-                <h5>Product Detail</h5>
+                <h5>Projects</h5>
             </div>
             <div class="card-body product-table p-t-35">
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
                         <tr class="text-uppercase">
-                            <th>Product</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
-                            <th>Dilevery</th>
-                            <th>Actions</th>
+                            <th>Project</th>
+                            <th>Start Date</th>
+                            <th>Status</th>
+                            <th>Project Manager</th>
+                            <th>Details</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <td>1. Awesome T-shirt</td>
-                            <td>24</td>
-                            <td><button type="button" class="btn btn-primary">$550</button></td>
-                            <td>M oscow,Lenina 44-1</td>
+                            <td>SENTIMENT ANALYSIS OF NEW PRODUCT</td>
+                            <td>19/05/2018</td>
+                            <td><button type="button" class="btn btn-success">Ongoing</button></td>
+                            <td>Sherman Gerk</td>
                             <td><button type="button" class="btn btn-success btn-round btn-outline-success">View</button></td>
                         </tr>
                         <tr>
-                            <td>2. Awesome T-shirt</td>
-                            <td>24</td>
-                            <td><button type="button" class="btn btn-success">$550</button></td>
-                            <td>M oscow,Lenina 44-1</td>
+                            <td>NEW OPPORTUNITIES IN GREATER CHINA</td>
+                            <td>16/05/2018</td>
+                            <td><button type="button" class="btn btn-success">Ongoing</button></td>
+                            <td>Sally Han</td>
                             <td><button type="button" class="btn btn-success btn-round btn-outline-success">View</button></td>
                         </tr>
                         <tr>
-                            <td>3. Awesome T-shirt</td>
-                            <td>24</td>
-                            <td><button type="button" class="btn btn-primary">$550</button></td>
-                            <td>M oscow,Lenina 44-1</td>
+                            <td>OPEN SESSION VBA PROGRAMMING FOR ALL!</td>
+                            <td>24/04/2018</td>
+                            <td><button type="button" class="btn btn-inverse">Completed</button></td>
+                            <td>Caden Lee</td>
                             <td><button type="button" class="btn btn-success btn-round btn-outline-success">View</button></td>
                         </tr>
                         <tr>
-                            <td>4. Awesome T-shirt</td>
-                            <td>24</td>
-                            <td><button type="button" class="btn btn-inverse">$550</button></td>
-                            <td>M oscow,Lenina 44-1</td>
+                            <td>4. Data Analytics with Python</td>
+                            <td>24/04/2018</td>
+                            <td><button type="button" class="btn btn-inverse">Completed</button></td>
+                            <td><i>Gather</i> Admin</td>
                             <td><button type="button" class="btn btn-success btn-round btn-outline-success">View</button></td>
                         </tr>
                         </tbody>
@@ -179,7 +257,7 @@
     <!-- Product table End -->
 
     <!-- facebook Start -->
-    <div class="col-md-12 col-xl-8">
+    <!--<div class="col-md-12 col-xl-8">
         <div class="row">
             <div class="col-sm-12">
                 <div class="news-card m-b-30 color-success card-body">
@@ -363,11 +441,12 @@
             </div>
         </div>
     </div>
-    <!-- facebook End -->
+-->
+ <!-- facebook End -->
     <!-- Start-->
-    <div class="col-md-12 col-xl-4">
+    <!-- <div class="col-md-12 col-xl-4"> -->
         <!-- Overdue Task Start-->
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body-big card-status">
@@ -387,8 +466,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div> -->
+            <!-- </div>
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body-big card-status">
@@ -411,11 +490,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>  -->
     <!-- End-->
 
     <!-- Reset Order Start -->
-    <div class="col-md-12">
+   <!--  <div class="col-md-12">
         <div class="card">
             <div class="card-body">
                 <h5>Reset Order</h5>
@@ -480,6 +559,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Reset Order End -->
 </div>

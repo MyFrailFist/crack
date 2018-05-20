@@ -52,7 +52,8 @@ import { MerchanXComponent } from './merchan-x/merchan-x.component';
 import { FitbitComponent } from './iot/fitbit/fitbit.component'; 
 // import { AlertService } from './services/alert.service';
 
-import { NeaComponent } from './nea/nea.component'; 
+import { NeaComponent } from './nea/nea.component';
+import { TestPage1Component } from './test-page1/test-page1.component'; 
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { NeaComponent } from './nea/nea.component';
     DatasyncComponent,
     MerchanXComponent,
     FitbitComponent,
-    NeaComponent
+    NeaComponent,
+    TestPage1Component
     // UserSignUpComponent,
     // AlertComponent,
     // ServicesComponent,

@@ -23,7 +23,7 @@ export class TitleComponent {
             }
           })
         } while (currentRoute);
-        this.titleService.setTitle( 'Variantz | ' + title );
+        this.titleService.setTitle( 'M | ' + title );
       });
   }
 }

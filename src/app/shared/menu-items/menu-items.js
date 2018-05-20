@@ -382,8 +382,8 @@ var MENUITEMS = [
                     }
                 ]
             }, {
-                state: 'file-upload',
-                name: 'File Upload',
+                state: 'testPage1',
+                name: 'File upload',
                 type: 'link',
                 icon: 'ti-cloud-up'
             }, {

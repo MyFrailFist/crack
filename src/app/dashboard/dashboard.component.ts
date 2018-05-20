@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { AuthService } from '../core/auth.service';
+import { Router } from '@angular/router';
 declare var $: any;
 
 @Component({
@@ -12,26 +13,26 @@ declare var $: any;
 })
 
 export class DashboardComponent implements OnInit {
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, public router: Router) { }
     comboChartData =  {
         chartType: 'ComboChart',
         dataTable: [
-            ['Month', 'Bolivia', 'Ecuador', 'Madagascar', 'Papua New Guinea', 'Rwanda', 'Average'],
-            ['2004/05', 165, 938, 522, 998, 450, 614.6],
-            ['2005/06', 135, 1120, 599, 1268, 288, 782],
-            ['2006/07', 157, 1167, 587, 807, 397, 323],
-            ['2007/08', 139, 1110, 615, 968, 215, 509.4],
-            ['2008/09', 136, 691, 629, 1026, 366, 269.6]
+            ['Week', 'Sales and Business', 'IT', 'Marketing', 'Operations', 'Finance', 'Human Resource'],
+            ['16/04/2018', 0, 0, 0, 0, 0, 0],
+            ['23/04/2018', 0, 2, 0, 0, 0, 0],
+            ['30/04/2018', 0, 2, 0, 0, 0, 0],
+            ['07/05/2018', 1, 2, 0, 0, 0, 0],
+            ['14/05/2018', 1, 0, 1, 0, 0, 0]
         ],
         options: {
             height: 320,
-            title: 'Monthly Coffee Production by Country',
-            vAxis: { title: 'Cups' },
-            hAxis: { title: 'Month' },
+            title: 'Number of Open Projects per Week',
+            vAxis: { title: 'Open Projects' },
+            hAxis: { title: 'Week' },
             seriesType: 'bars',
             bar: {groupWidth: '90%'},
-            series: { 5: { type: 'line' } },
-            colors: ['#e74c3c', '#2ecc71', '#5faee3', '#0073aa', '#f1c40f', '#e74c3c']
+            /*series: { 5: { type: 'line' } },*/
+            colors: ['#e74c3c', '#2ecc71', '#5faee3', '#0073aa', '#f1c40f', '#9932CC']
         },
     };
     /*Polar chart*/
@@ -130,5 +131,9 @@ export class DashboardComponent implements OnInit {
               fillColor: 'rgba(35, 154, 85, .5)'
           });
       }, 1);
+  }
+
+  movePage(){
+    this.router.navigate(['testPage1'])
   }
 }

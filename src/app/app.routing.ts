@@ -9,6 +9,8 @@ import { UserLoginComponent } from './users/user-login/user-login.component';
 import { OnboardingComponent } from './onboarding/onboarding.component';
 import { FitbitComponent } from './iot/fitbit/fitbit.component';
 
+import {TestPage1Component} from './test-page1/test-page1.component';
+
 import { MerchanXComponent } from './merchan-x/merchan-x.component';
 import { NeaComponent } from './nea/nea.component';
 // import { UserSignUpComponent} from './users/user-signup/user-signup.component';
@@ -66,6 +68,9 @@ export const AppRoutes: Routes = [
     },{
       path:'fitbit',
       component: FitbitComponent
+    },{
+      path:'testPage1',
+      component: TestPage1Component
     }
     // ,{
     //   path: 'user',
